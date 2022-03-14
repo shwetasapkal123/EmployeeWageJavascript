@@ -44,7 +44,15 @@ function getWorkingHours(empCheck)
         default: return 0;
     }
 }
-empHrs=getWorkingHours(empCheck);
+/*empHrs=getWorkingHours(empCheck);
 let empWage=empHrs*WAGE_PER_HOUR;
-console.log("Emp wage: "+empWage);
+console.log("Emp wage: "+empWage);*/
 
+//UC4
+const NUM_OF_WORKING_DAYS=20;
+for(day=0;day<NUM_OF_WORKING_DAYS;day++)
+{
+    empHrs+=getWorkingHours(empCheck);
+}
+let empWageMonth=empHrs*WAGE_PER_HOUR;
+console.log("Total Hrs: "+empHrs+" Emp Wage of one month "+empWageMonth);
