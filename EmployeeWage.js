@@ -55,4 +55,16 @@ for(day=0;day<NUM_OF_WORKING_DAYS;day++)
     empHrs+=getWorkingHours(empCheck);
 }
 let empWageMonth=empHrs*WAGE_PER_HOUR;
-console.log("Total Hrs: "+empHrs+" Emp Wage of one month "+empWageMonth);
+console.log("UC4-Total Hrs: "+empHrs+" Emp Wage of one month "+empWageMonth);
+
+//UC5
+const MAX_HRS_IN_MONTH=160;
+totalEmpHrs=0;
+totalWorkingdays=0;
+while(totalEmpHrs<=MAX_HRS_IN_MONTH && totalWorkingdays<NUM_OF_WORKING_DAYS)
+{
+  totalWorkingdays++;
+  totalEmpHrs+=getWorkingHours(empCheck);
+}
+empWageWhile=totalEmpHrs*WAGE_PER_HOUR;
+console.log("UC5-Total days "+totalWorkingdays+" Total Hrs: "+totalEmpHrs+" Emp Wage "+empWageWhile);
