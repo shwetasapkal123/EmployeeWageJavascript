@@ -105,3 +105,14 @@ function sum(dailyWage)
 console.log("Daily wage array using forEach method");
 empDailyWageArr.forEach(a=>console.log(a));
 console.log("UC7-Total days: "+totalWorkingdays+" Total Hrs: "+totalEmpHrs+" Emp Wage: "+dailyWage);
+
+//7b-shownthe day along with daily wage using Array map helper function
+let dailyCntr=0;
+function mapdayWithWage(dailyWage)
+{
+    dailyCntr++;
+    return dailyCntr+" = "+dailyWage;
+}
+let mapdayWithWageArr=empDailyWageArr.map(mapdayWithWage);
+console.log("UC7B-Daily wage map");
+console.log(mapdayWithWageArr);
