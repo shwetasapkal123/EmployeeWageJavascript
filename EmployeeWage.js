@@ -69,7 +69,9 @@ while(totalEmpHrs<=MAX_HRS_IN_MONTH && totalWorkingdays<NUM_OF_WORKING_DAYS)
 empWageWhile=totalEmpHrs*WAGE_PER_HOUR;
 console.log("UC5-Total days "+totalWorkingdays+" Total Hrs: "+totalEmpHrs+" Emp Wage "+empWageWhile);
 
-//UC6
+//UC6-store Daily Wage along with total wage
+totalEmpHrs=0;
+totalWorkingdays=0;
 function calDailyWage(empHrs)
 {
     return empHrs*WAGE_PER_HOUR;
@@ -80,10 +82,26 @@ empDailyWageArr=new Array();
 while(totalEmpHrs<=MAX_HRS_IN_MONTH && totalWorkingdays<NUM_OF_WORKING_DAYS)
 {
     totalWorkingdays++;
+    empCheck=Math.floor(Math.random()*10)%3;
     empHrs=getWorkingHours(empCheck);
     totalEmpHrs+=empHrs;
     empDailyWageArr.push(calDailyWage(empHrs));
 }
 
 empWageStore=calDailyWage(totalEmpHrs);
+console.log("Daily wages are: "+empDailyWageArr);
 console.log("UC6-Total Days: "+totalWorkingdays+" Total Hrs: "+totalEmpHrs+ " Emp Wage: "+empWageStore);
+
+//UC7-Array helper Function
+//7a-calculate total wage using array foreach or reduce method
+let totalEmpWage=0;
+dailyWage=calDailyWage(empHrs);
+//console.log(dailyWage);
+function sum(dailyWage)
+{
+    console.log("DailyWagesAre"+dailyWage);
+    totalEmpWage+=dailyWage;
+}
+console.log("Daily wage array using forEach method");
+empDailyWageArr.forEach(a=>console.log(a));
+console.log("UC7-Total days: "+totalWorkingdays+" Total Hrs: "+totalEmpHrs+" Emp Wage: "+dailyWage);
