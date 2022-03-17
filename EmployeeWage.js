@@ -22,6 +22,7 @@ const MAX_HRS_IN_MONTH=160;
 empDailyWageArr=new Array();
 empDailyWageMap=new Map();
 let empDailyHrsMap = new Map();
+let empDailyHrsAndWageArr=new Array();
 
 let empHrs=0;
 empCheck=Math.floor(Math.random()*10)%3;
@@ -186,3 +187,25 @@ let count=0;
 let totalHours=Array.from(empDailyHrsMap.values()).reduce(findTotal,0);
 let totalSalary=empDailyWageArr.filter(dailyWage=>dailyWage>0).reduce(findTotal,0);
 console.log("UC9A-Emp wage with Arrow: "+" Total Hours: "+totalHours+" Total Wages: "+totalSalary);
+//UC10-StoreInObject
+totalEmpHrs=0;
+totalWorkingdays=0;
+while(totalEmpHrs<=MAX_HRS_IN_MONTH && totalWorkingdays<NUM_OF_WORKING_DAYS)
+{
+    totalWorkingdays++;
+    let empCheck=Math.floor(Math.random()*10)%3;
+    let empHrs=getWorkingHours(empCheck);
+    totalEmpHrs+=empHrs;
+    empDailyHrsAndWageArr.push(
+        {
+            dayNum:totalWorkingdays,
+            dailyHours:empHrs,
+            dailyWage:calDailyWage(empHrs),
+            toString()
+            {
+                return '\nDay'+this.dayNum+'=>Working Hours is '+this.dailyHours+' And Wage Earned= '+this.dailyWage
+            },
+        }
+    );
+}
+console.log("UC10- Showing daily hours worked and wage earned: "+empDailyHrsAndWageArr);
