@@ -104,6 +104,8 @@ function sum(dailyWage)
 }
 console.log("Daily wage array using forEach method");
 empDailyWageArr.forEach(a=>console.log(a));
+empDailyWageArr.forEach(sum);
+console.log(" Total Emp Wage is: "+totalEmpWage);
 console.log("UC7-Total days: "+totalWorkingdays+" Total Hrs: "+totalEmpHrs+" Emp Wage: "+dailyWage);
 
 //7b-shownthe day along with daily wage using Array map helper function
@@ -132,3 +134,10 @@ function findFullTimewage(dailyWage)
     return dailyWage.includes("160");
 }
 console.log("UC7D- first time fulltime wage was earned on day: "+mapdayWithWageArr.find(findFullTimewage));
+//UC7E-check if every  element of full time wage is truely holding full time wage
+function isAllFulltimeWage(dailyWage)
+{
+    return dailyWage.includes("160");
+}
+console.log("UC7E check all element have full time wage"+
+fullDayWageArr.every(isAllFulltimeWage));
