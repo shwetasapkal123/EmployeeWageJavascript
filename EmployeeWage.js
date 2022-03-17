@@ -209,3 +209,7 @@ while(totalEmpHrs<=MAX_HRS_IN_MONTH && totalWorkingdays<NUM_OF_WORKING_DAYS)
     );
 }
 console.log("UC10- Showing daily hours worked and wage earned: "+empDailyHrsAndWageArr);
+//UC11-object operations using Arrow Functions
+ totalWages=empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage >0).reduce((totalWage,dailyHrsAndWage)=>totalWage+=dailyHrsAndWage.dailyWage,0);
+ totalHours=empDailyHrsAndWageArr.filter(dailyHrsAndWage=>dailyHrsAndWage.dailyWage>0).reduce((totalHours,dailyHrsAndWage)=>totalHours+=dailyHrsAndWage.dailyHours,0);
+ console.log("UC11A- Total Hours: "+totalHours+" Total Wages: "+totalWages);
