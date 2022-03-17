@@ -213,3 +213,32 @@ console.log("UC10- Showing daily hours worked and wage earned: "+empDailyHrsAndW
  totalWages=empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage >0).reduce((totalWage,dailyHrsAndWage)=>totalWage+=dailyHrsAndWage.dailyWage,0);
  totalHours=empDailyHrsAndWageArr.filter(dailyHrsAndWage=>dailyHrsAndWage.dailyWage>0).reduce((totalHours,dailyHrsAndWage)=>totalHours+=dailyHrsAndWage.dailyHours,0);
  console.log("UC11A- Total Hours: "+totalHours+" Total Wages: "+totalWages);
+ //UC11-Create Employee Payroll
+ class EmployeePayrollData
+ {
+     //property
+     id;
+     salary;
+
+     //constructor
+     constructor (id,name,salary)
+     {
+         this.id=id;
+         this.name=name;
+         this.salary=salary;
+     }
+     //getter and setter method
+     get name(){return this._name;}
+     set name(name){this._name=name;}
+     //method
+     toString()
+     {
+         return "id= "+this.id+", name= "+this.name+", salary "+this.salary;
+     }
+ }
+ let employeepayrollData=new EmployeePayrollData(1,"Shweta",50000);
+ console.log(employeepayrollData.toString());
+ employeepayrollData.name="Snehal";
+ employeepayrollData.id=2;
+ employeepayrollData.salary=45000;
+ console.log(employeepayrollData.toString());
