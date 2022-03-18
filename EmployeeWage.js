@@ -233,7 +233,13 @@ console.log("UC10- Showing daily hours worked and wage earned: "+empDailyHrsAndW
      }
      //getter and setter method
      get name(){return this._name;}
-     set name(name){this._name=name;}
+     set name(name){
+         //UC13-Regex Pattern for name and throw error
+        let nameRegex=RegExp('^[A-Z]{1}[a-z]{3,}$');
+        if(nameRegex.test(name))
+        this._name=name;
+    else throw 'Name is Incorrect!';
+}
      //method
      toString()
      {
@@ -244,10 +250,27 @@ console.log("UC10- Showing daily hours worked and wage earned: "+empDailyHrsAndW
  }
  let employeepayrollData=new EmployeePayrollData(1,"Shweta",50000);
  console.log(employeepayrollData.toString());
- employeepayrollData.name="Snehal";
+ try{
+     employeepayrollData.name="Snehal";
+     console.log(employeepayrollData.toString());
+ }
+ catch(ex)
+ {
+     console.log(ex);
+ }
+ /*employeepayrollData.name="Snehal";
  employeepayrollData.id=2;
  employeepayrollData.salary=45000;
- console.log(employeepayrollData.toString());
+ console.log(employeepayrollData.toString());*/
  //UC12-Extend EmployeePayroll to store gender and start date
+
+try{
 let newEmployeePayrollData=new EmployeePayrollData(1,"Terrisa",30000,"F",new Date());
-console.log(newEmployeePayrollData.toString());
+    console.log(newEmployeePayrollData.toString());
+}
+catch(ex)
+{
+    console.log(ex);
+}
+
+
