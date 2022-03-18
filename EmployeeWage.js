@@ -219,13 +219,17 @@ console.log("UC10- Showing daily hours worked and wage earned: "+empDailyHrsAndW
      //property
      id;
      salary;
+     gender;
+     startDate;
 
      //constructor
-     constructor (id,name,salary)
+     constructor (...Parameters)
      {
-         this.id=id;
-         this.name=name;
-         this.salary=salary;
+         this.id=Parameters[0];
+         this.name=Parameters[1];
+         this.salary=Parameters[2];
+         this.gender=Parameters[3];
+         this.startDate=Parameters[4];
      }
      //getter and setter method
      get name(){return this._name;}
@@ -233,7 +237,9 @@ console.log("UC10- Showing daily hours worked and wage earned: "+empDailyHrsAndW
      //method
      toString()
      {
-         return "id= "+this.id+", name= "+this.name+", salary "+this.salary;
+         const options={year: 'numeric',month: 'long',day: 'numeric'};
+         const empDate=this.startDate===undefined ? "undefined" : this.startDate.toLocaleDateString("en-US",options);
+         return "id="+ this.id+", name="+", salary="+this.salary+" , "+"gender="+this.gender+" ,startDate="+ empDate;
      }
  }
  let employeepayrollData=new EmployeePayrollData(1,"Shweta",50000);
@@ -242,3 +248,6 @@ console.log("UC10- Showing daily hours worked and wage earned: "+empDailyHrsAndW
  employeepayrollData.id=2;
  employeepayrollData.salary=45000;
  console.log(employeepayrollData.toString());
+ //UC12-Extend EmployeePayroll to store gender and start date
+let newEmployeePayrollData=new EmployeePayrollData(1,"Terrisa",30000,"F",new Date());
+console.log(newEmployeePayrollData.toString());
